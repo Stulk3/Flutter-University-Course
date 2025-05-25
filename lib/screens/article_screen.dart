@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news_app/l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/article.dart';
 
@@ -23,7 +23,8 @@ class ArticleScreen extends StatelessWidget {
               Image.network(
                 article.urlToImage!,
                 fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
+                errorBuilder: (context, error, stackTrace) =>
+                    const Icon(Icons.error),
               ),
             const SizedBox(height: 16),
             Text(
@@ -46,7 +47,7 @@ class ArticleScreen extends StatelessWidget {
                 final url = article.url;
                 if (url != null && await canLaunchUrl(Uri.parse(url))) {
                   await launchUrl(Uri.parse(url));
-                } else {
+                } else if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(localizations.errorOpeningLink)),
                   );

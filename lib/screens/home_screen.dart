@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news_app/l10n/app_localizations.dart';
 import '../models/article.dart';
 import '../services/api_service.dart';
 import 'article_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final String? apiKey;
+  const HomeScreen({super.key, this.apiKey});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -17,7 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _articles = ApiService().fetchArticles();
+    _articles = widget.apiKey == null
+        ? Future.error('API key is missing')
+        : ApiService().fetchArticles(apiKey: widget.apiKey!);
   }
 
   @override
@@ -40,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return Center(child: Text(localizations.errorLoading));
+            return Center(child: Text('${localizations.errorLoading}: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return Center(child: Text(localizations.noArticles));
           }

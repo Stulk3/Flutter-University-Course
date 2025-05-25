@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "appTitle": "News App",
+  "aboutTitle": "About",
+  "aboutName": "Your Name",
+  "aboutGroup": "Group: Your Group",
+  "aboutDescription": "This is a news app developed for MIREA course.",
+  "noTitle": "No Title",
+  "noDescription": "No Description",
+  "noDate": "No Date",
+  "errorLoading": "Error loading articles",
+  "noArticles": "No articles available",
+  "readMore": "Read More",
+  "errorOpeningLink": "Could not open the link"
+}
