@@ -13,5 +13,6 @@
   "readMore": "Читать далее",
   "errorOpeningLink": "Не удалось открыть ссылку",
   "aboutScreenTitle": "О разработчиках",
-  "settingsTitle":"Настройки"
+  "settingsTitle": "Настройки",
+  "favoritesScreenTitle": "Избранные статьи"
 }

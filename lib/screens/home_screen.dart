@@ -1,8 +1,11 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:news_app/l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/article.dart';
 import '../services/api_service.dart';
 import 'article_screen.dart';
+import 'favorites_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final String? apiKey;
@@ -14,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<List<Article>> _articles;
+  List<Article> _favoriteArticles = [];
 
   @override
   void initState() {
@@ -21,7 +25,41 @@ class _HomeScreenState extends State<HomeScreen> {
     _articles = widget.apiKey == null
         ? Future.error('API key is missing')
         : ApiService().fetchArticles(apiKey: widget.apiKey!);
+    _loadFavorites();
   }
+
+Future<void> _loadFavorites() async {
+  final prefs = await SharedPreferences.getInstance();
+  final favoritesJson = prefs.getStringList('favorites') ?? [];
+  setState(() {
+    _favoriteArticles = favoritesJson
+        .map((json) {
+          try {
+            return Article.fromJson(jsonDecode(json));
+          } catch (e) {
+            print('Ошибка десериализации: $e');
+            return null;
+          }
+        })
+        .where((article) => article != null)
+        .cast<Article>()
+        .toList();
+  });
+}
+
+Future<void> _toggleFavorite(Article article) async {
+  final prefs = await SharedPreferences.getInstance();
+  setState(() {
+    if (_favoriteArticles.any((fav) => fav.title == article.title)) {
+      _favoriteArticles.removeWhere((fav) => fav.title == article.title);
+    } else {
+      _favoriteArticles.add(article);
+    }
+    final favoritesJson =
+        _favoriteArticles.map((article) => jsonEncode(article.toJson())).toList();
+    prefs.setStringList('favorites', favoritesJson);
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () => Navigator.pushNamed(context, '/settings'),
+          ),
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FavoritesScreen()),
+            ),
           ),
         ],
       ),
@@ -53,6 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
             itemCount: articles.length,
             itemBuilder: (context, index) {
               final article = articles[index];
+              final isFavorite = _favoriteArticles.any((fav) => fav.title == article.title);
+
               return Card(
                 child: ListTile(
                   leading: article.urlToImage != null
@@ -63,6 +110,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     article.description ?? localizations.noDescription,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite ? Colors.red : null,
+                    ),
+                    onPressed: () => _toggleFavorite(article),
                   ),
                   onTap: () {
                     Navigator.push(

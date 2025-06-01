@@ -178,6 +178,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Settings'**
   String get settingsTitle;
+
+  /// No description provided for @favoritesScreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite Articles'**
+  String get favoritesScreenTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

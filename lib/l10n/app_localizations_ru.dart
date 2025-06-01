@@ -49,4 +49,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get settingsTitle => 'Настройки';
+
+  @override
+  String get favoritesScreenTitle => 'Избранные статьи';
 }

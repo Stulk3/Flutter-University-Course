@@ -13,5 +13,6 @@
   "readMore": "Read More",
   "errorOpeningLink": "Could not open the link",
   "aboutScreenTitle": "About Developers",
-  "settingsTitle":"Settings"
+  "settingsTitle": "Settings",
+  "favoritesScreenTitle": "Favorite Articles"
 }
