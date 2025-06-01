@@ -12,5 +12,6 @@
   "noArticles": "Статьи отсутствуют",
   "readMore": "Читать далее",
   "errorOpeningLink": "Не удалось открыть ссылку",
-  "aboutScreenTitle": "О разработчиках"
+  "aboutScreenTitle": "О разработчиках",
+  "settingsTitle":"Настройки"
 }

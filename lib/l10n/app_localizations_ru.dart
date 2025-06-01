@@ -46,4 +46,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get aboutScreenTitle => 'О разработчиках';
+
+  @override
+  String get settingsTitle => 'Настройки';
 }

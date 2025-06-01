@@ -12,5 +12,6 @@
   "noArticles": "No articles available",
   "readMore": "Read More",
   "errorOpeningLink": "Could not open the link",
-  "aboutScreenTitle": "About Developers"
+  "aboutScreenTitle": "About Developers",
+  "settingsTitle":"Settings"
 }

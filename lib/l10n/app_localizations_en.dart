@@ -46,4 +46,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutScreenTitle => 'About Developers';
+
+  @override
+  String get settingsTitle => 'Settings';
 }

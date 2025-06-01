@@ -172,6 +172,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About Developers'**
   String get aboutScreenTitle;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
