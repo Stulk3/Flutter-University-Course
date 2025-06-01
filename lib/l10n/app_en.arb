@@ -11,5 +11,6 @@
   "errorLoading": "Error loading articles",
   "noArticles": "No articles available",
   "readMore": "Read More",
-  "errorOpeningLink": "Could not open the link"
+  "errorOpeningLink": "Could not open the link",
+  "aboutScreenTitle": "About Developers"
 }

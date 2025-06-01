@@ -1,0 +1,18 @@
+[
+    {
+      "name": "Ваня Аминов",
+      "photoUrl": "https://drive.google.com/uc?id=1-EATYDF6k6F6NsTdTBhNVpuW-2Z_ang-",
+      "company": "РТУ МИРЭА, ИКМО-03-24",
+      "phone": "+7 123 456 7890",
+      "email": "ivan@example.com",
+      "github": "https://github.com/ivan"
+    },
+    {
+      "name": "Катя Манохина",
+      "photoUrl": "https://drive.google.com/uc?id=1FiMzCswJDmrvn3t_mLGCy9Ob_8HbZw_U",
+      "company": "РТУ МИРЭА, ИКМО-03-24",
+      "phone": "+7 987 654 3210",
+      "email": "katya@example.com",
+      "github": "https://github.com/katya"
+    }
+]
