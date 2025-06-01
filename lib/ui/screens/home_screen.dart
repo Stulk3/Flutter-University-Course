@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:news_app/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/article.dart';
-import '../services/api_service.dart';
+import '../../data/models/article.dart';
+import '../../data/services/api_service.dart';
 import 'article_screen.dart';
 import 'favorites_screen.dart';
 

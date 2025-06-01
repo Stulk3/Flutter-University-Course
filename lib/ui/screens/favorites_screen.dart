@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
-import '../models/article.dart';
+import '../../data/models/article.dart';
 import 'article_screen.dart';
-import '../l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 
 class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key});

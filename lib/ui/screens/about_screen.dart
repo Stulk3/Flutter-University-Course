@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert';
-import '../models/card_model.dart';
-import '../l10n/app_localizations.dart';
+import '../../data/models/card_model.dart';
+import '../../l10n/app_localizations.dart';
 
 class AboutScreen extends StatefulWidget {
   const AboutScreen({super.key});

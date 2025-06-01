@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'screens/home_screen.dart';
-import 'screens/about_screen.dart';
-import 'screens/settings_screen.dart';
-import 'screens/favorites_screen.dart';
+import 'ui/screens/home_screen.dart';
+import 'ui/screens/about_screen.dart';
+import 'ui/screens/settings_screen.dart';
+import 'ui/screens/favorites_screen.dart';
 import 'l10n/app_localizations.dart';
 
 void main() async {

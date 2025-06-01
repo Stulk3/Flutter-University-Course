@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../l10n/app_localizations.dart';
-import '../main.dart'; // Import the file where MyApp is defined
+import '../../l10n/app_localizations.dart';
+import '../../main.dart'; // Import the file where MyApp is defined
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
