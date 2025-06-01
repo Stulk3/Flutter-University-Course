@@ -21,8 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutGroup => 'Group: Your Group';
 
   @override
-  String get aboutDescription =>
-      'This is a news app developed for MIREA course.';
+  String get aboutDescription => 'This is a news app developed for MIREA course.';
 
   @override
   String get noTitle => 'No Title';
@@ -44,4 +43,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorOpeningLink => 'Could not open the link';
+
+  @override
+  String get aboutScreenTitle => 'About Developers';
+
+  @override
+  String get settingsTitle => 'Settings';
 }

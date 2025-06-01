@@ -32,8 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(localizations.appTitle),
         actions: [
           IconButton(
-            icon: const Icon(Icons.info),
-            onPressed: () => Navigator.pushNamed(context, '/about'),
+            icon: const Icon(Icons.settings),
+            onPressed: () => Navigator.pushNamed(context, '/settings'),
           ),
         ],
       ),

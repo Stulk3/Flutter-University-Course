@@ -21,8 +21,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get aboutGroup => 'Группа: Ваша Группа';
 
   @override
-  String get aboutDescription =>
-      'Это новостное приложение, разработанное для курса МИРЭА.';
+  String get aboutDescription => 'Это новостное приложение, разработанное для курса МИРЭА.';
 
   @override
   String get noTitle => 'Без заголовка';
@@ -44,4 +43,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get errorOpeningLink => 'Не удалось открыть ссылку';
+
+  @override
+  String get aboutScreenTitle => 'О разработчиках';
+
+  @override
+  String get settingsTitle => 'Настройки';
 }
