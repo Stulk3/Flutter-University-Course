@@ -24,16 +24,28 @@ class MyApp extends StatefulWidget {
     state?.changeLocale(newLocale);
   }
 
+  static void setTheme(BuildContext context, ThemeMode newThemeMode) {
+    final _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.changeTheme(newThemeMode);
+  }
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
+  ThemeMode _themeMode = ThemeMode.system;
 
   void changeLocale(Locale locale) {
     setState(() {
       _locale = locale;
+    });
+  }
+
+  void changeTheme(ThemeMode themeMode) {
+    setState(() {
+      _themeMode = themeMode;
     });
   }
 
@@ -51,7 +63,7 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.dark,
         cardTheme: const CardThemeData(elevation: 4, margin: EdgeInsets.all(8)),
       ),
-      themeMode: ThemeMode.system,
+      themeMode: _themeMode,
       locale: _locale,
       supportedLocales: const [
         Locale('en', 'US'),

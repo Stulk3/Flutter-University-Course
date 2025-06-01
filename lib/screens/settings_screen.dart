@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
-import 'package:news_app/main.dart'; // Import the file where MyApp is defined
+import '../main.dart'; // Import the file where MyApp is defined
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  ThemeMode _selectedThemeMode = ThemeMode.system;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +40,35 @@ class SettingsScreen extends StatelessWidget {
               Navigator.pushNamed(context, '/about');
             },
           ),
+          const Divider(),
+          ListTile(
+            title: const Text('Выбор темы'),
+            subtitle: DropdownButton<ThemeMode>(
+              value: _selectedThemeMode,
+              items: const [
+                DropdownMenuItem(
+                  value: ThemeMode.light,
+                  child: Text('Светлая тема'),
+                ),
+                DropdownMenuItem(
+                  value: ThemeMode.dark,
+                  child: Text('Темная тема'),
+                ),
+                DropdownMenuItem(
+                  value: ThemeMode.system,
+                  child: Text('Системная тема'),
+                ),
+              ],
+              onChanged: (ThemeMode? newThemeMode) {
+                if (newThemeMode != null) {
+                  setState(() {
+                    _selectedThemeMode = newThemeMode;
+                  });
+                  _changeTheme(context, newThemeMode);
+                }
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -41,5 +77,9 @@ class SettingsScreen extends StatelessWidget {
   void _changeLocale(BuildContext context, Locale locale) {
     MyApp.setLocale(context, locale); // Обновляем локаль приложения
     Navigator.pop(context); // Возвращаемся на предыдущий экран
+  }
+
+  void _changeTheme(BuildContext context, ThemeMode themeMode) {
+    MyApp.setTheme(context, themeMode); // Обновляем тему приложения
   }
 }
