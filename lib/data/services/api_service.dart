@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:news_app/domain/repositories/article_repository.dart';
 import '../models/article.dart';
 
-class ApiService {
+
+class ApiService implements ArticleRepository {
   static const String _baseUrl = 'https://newsapi.org/v2';
 
-  Future<List<Article>> fetchArticles({required String apiKey}) async {
+  @override
+  Future<List<Article>> fetchArticles(String apiKey) async {
     final response = await http.get(
       Uri.parse('$_baseUrl/top-headlines?country=us&apiKey=$apiKey'),
     );

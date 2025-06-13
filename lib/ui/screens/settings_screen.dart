@@ -42,21 +42,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           const Divider(),
           ListTile(
-            title: const Text('Выбор темы'),
+            title: Text(localizations.themeSelectionTitle),
             subtitle: DropdownButton<ThemeMode>(
               value: _selectedThemeMode,
-              items: const [
+              items: [
                 DropdownMenuItem(
                   value: ThemeMode.light,
-                  child: Text('Светлая тема'),
+                  child: Text(localizations.lightTheme),
                 ),
                 DropdownMenuItem(
                   value: ThemeMode.dark,
-                  child: Text('Темная тема'),
+                  child: Text(localizations.darkTheme),
                 ),
                 DropdownMenuItem(
                   value: ThemeMode.system,
-                  child: Text('Системная тема'),
+                  child: Text(localizations.systemTheme),
                 ),
               ],
               onChanged: (ThemeMode? newThemeMode) {

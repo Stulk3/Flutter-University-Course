@@ -184,6 +184,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Favorite Articles'**
   String get favoritesScreenTitle;
+
+  /// No description provided for @themeSelectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Selection'**
+  String get themeSelectionTitle;
+
+  /// No description provided for @lightTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Theme'**
+  String get lightTheme;
+
+  /// No description provided for @darkTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Theme'**
+  String get darkTheme;
+
+  /// No description provided for @systemTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'System Theme'**
+  String get systemTheme;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

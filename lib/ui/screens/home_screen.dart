@@ -24,42 +24,42 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _articles = widget.apiKey == null
         ? Future.error('API key is missing')
-        : ApiService().fetchArticles(apiKey: widget.apiKey!);
+        : ApiService().fetchArticles(widget.apiKey!);
     _loadFavorites();
   }
 
-Future<void> _loadFavorites() async {
-  final prefs = await SharedPreferences.getInstance();
-  final favoritesJson = prefs.getStringList('favorites') ?? [];
-  setState(() {
-    _favoriteArticles = favoritesJson
-        .map((json) {
-          try {
-            return Article.fromJson(jsonDecode(json));
-          } catch (e) {
-            print('Ошибка десериализации: $e');
-            return null;
-          }
-        })
-        .where((article) => article != null)
-        .cast<Article>()
-        .toList();
-  });
-}
+  Future<void> _loadFavorites() async {
+    final prefs = await SharedPreferences.getInstance();
+    final favoritesJson = prefs.getStringList('favorites') ?? [];
+    setState(() {
+      _favoriteArticles = favoritesJson
+          .map((json) {
+            try {
+              return Article.fromJson(jsonDecode(json));
+            } catch (e) {
+              print('Ошибка десериализации: $e');
+              return null;
+            }
+          })
+          .where((article) => article != null)
+          .cast<Article>()
+          .toList();
+    });
+  }
 
-Future<void> _toggleFavorite(Article article) async {
-  final prefs = await SharedPreferences.getInstance();
-  setState(() {
-    if (_favoriteArticles.any((fav) => fav.title == article.title)) {
-      _favoriteArticles.removeWhere((fav) => fav.title == article.title);
-    } else {
-      _favoriteArticles.add(article);
-    }
-    final favoritesJson =
-        _favoriteArticles.map((article) => jsonEncode(article.toJson())).toList();
-    prefs.setStringList('favorites', favoritesJson);
-  });
-}
+  Future<void> _toggleFavorite(Article article) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      if (_favoriteArticles.any((fav) => fav.title == article.title)) {
+        _favoriteArticles.removeWhere((fav) => fav.title == article.title);
+      } else {
+        _favoriteArticles.add(article);
+      }
+      final favoritesJson =
+          _favoriteArticles.map((article) => jsonEncode(article.toJson())).toList();
+      prefs.setStringList('favorites', favoritesJson);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

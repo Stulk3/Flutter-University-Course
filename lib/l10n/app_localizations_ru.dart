@@ -52,4 +52,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get favoritesScreenTitle => 'Избранные статьи';
+
+  @override
+  String get themeSelectionTitle => 'Выбор темы';
+
+  @override
+  String get lightTheme => 'Светлая тема';
+
+  @override
+  String get darkTheme => 'Темная тема';
+
+  @override
+  String get systemTheme => 'Системная тема';
 }

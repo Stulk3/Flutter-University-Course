@@ -52,4 +52,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get favoritesScreenTitle => 'Favorite Articles';
+
+  @override
+  String get themeSelectionTitle => 'Theme Selection';
+
+  @override
+  String get lightTheme => 'Light Theme';
+
+  @override
+  String get darkTheme => 'Dark Theme';
+
+  @override
+  String get systemTheme => 'System Theme';
 }
